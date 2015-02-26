@@ -93,7 +93,7 @@ function getComments(page, next) {
     var reviews = OUTPUT['Reviewed-By'];
 
     comments.forEach(function (comment) {
-      if (/lgtm/i.test(comment.body)) {
+      if (/lgtm/i.test(comment.body) || /\+1/.test(comment.body)) {
         var val = reviews[comment.user.login] || 0;
         reviews[comment.user.login] = val + 1;
       }
